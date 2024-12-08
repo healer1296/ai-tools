@@ -6,7 +6,7 @@ import { Search } from '@/components/search';
 export default function Home() {
   return (
     <>
-      <header className="fixed top-0 z-10 py-4 bg-slate-950 w-full">
+      <header className="fixed top-0 z-10 py-4 md:py-0 bg-slate-950 w-full">
         <div className="flex flex-col gap-4 md:flex-row justify-start md:justify-between items-center h-32 md:h-20 px-4 md:px-8">
           <a className="flex items-center justify-start gap-3" href="/">
             <Image
@@ -18,18 +18,18 @@ export default function Home() {
               priority={false}
             />
 
-            <h1 className="text-3xl font-black text-cyan-600">AI-Tools</h1>
+            <h1 className="text-3xl font-black text-cyan-600"><small>the</small>AITools</h1>
           </a>
           <div className="flex flex-col md:flex-row justify-end items-center gap-6">
-            <div className="hidden md:block">
+            {/* <div className="hidden md:block">
               <Search />
-            </div>
+            </div> */}
             <Social />
           </div>
 
-          <div className="md:hidden">
+          {/* <div className="md:hidden">
             <Search />
-          </div>
+          </div> */}
         </div>
       </header>
 
@@ -72,7 +72,7 @@ export default function Home() {
 
       <footer className="mt-12 py-6 px-8 border-t border-white/80">
         <div className="flex justify-center items-center">
-          <span>© 2024 AI Tools. All Rights Reserved.</span>
+          <span>© 2024 The AI Tools. All Rights Reserved.</span>
         </div>
       </footer>
     </>
