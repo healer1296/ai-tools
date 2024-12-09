@@ -8,7 +8,7 @@ export function Social() {
         target="_blank"
       >
         <Image
-          className="hover:scale-[110%] duration-700 ease-[cubic-bezier(.24,1.61,.72,1.01)] opacity-[0.8]"
+          className="hover:scale-[120%] duration-700 ease-[cubic-bezier(.24,1.61,.72,1.01)] opacity-[0.8]"
           aria-hidden
           src="/facebook.svg"
           alt="File icon"
@@ -19,7 +19,7 @@ export function Social() {
       </a>
       <a href="https://www.instagram.com/jonhsmith140389" target="_blank">
         <Image
-          className="hover:scale-[110%] duration-700 ease-[cubic-bezier(.24,1.61,.72,1.01)] opacity-[0.8]"
+          className="hover:scale-[120%] duration-700 ease-[cubic-bezier(.24,1.61,.72,1.01)] opacity-[0.8]"
           aria-hidden
           src="/instagram.svg"
           alt="File icon"
@@ -30,7 +30,7 @@ export function Social() {
       </a>
       <a href="https://www.threads.net/@jonhsmith140389" target="_blank">
         <Image
-          className="hover:scale-[110%] duration-700 ease-[cubic-bezier(.24,1.61,.72,1.01)] opacity-[0.8]"
+          className="hover:scale-[120%] duration-700 ease-[cubic-bezier(.24,1.61,.72,1.01)] opacity-[0.8]"
           aria-hidden
           src="/thread.svg"
           alt="File icon"
@@ -42,7 +42,7 @@ export function Social() {
 
       <a href="https://x.com/JonhSmith140389" target="_blank">
         <Image
-          className="hover:scale-[110%] duration-700 ease-[cubic-bezier(.24,1.61,.72,1.01)] opacity-[0.8]"
+          className="hover:scale-[120%] duration-700 ease-[cubic-bezier(.24,1.61,.72,1.01)] opacity-[0.8]"
           aria-hidden
           src="/x.svg"
           alt="File icon"
