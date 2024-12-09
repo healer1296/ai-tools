@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "AI Tools",
+  title: "AI Tools Finder",
   description: "AI Tools for everyone",
 };
 
