@@ -18,7 +18,7 @@ export default function Home() {
               priority={false}
             />
 
-            <h1 className="text-3xl font-black text-cyan-600"><small>the</small>AITools</h1>
+            <h1 className="text-3xl font-black text-cyan-600">AITools</h1>
           </a>
           <div className="flex flex-col md:flex-row justify-end items-center gap-6">
             {/* <div className="hidden md:block">
@@ -72,7 +72,7 @@ export default function Home() {
 
       <footer className="mt-12 py-6 px-8 border-t border-white/80">
         <div className="flex justify-center items-center">
-          <span>© 2024 The AI Tools. All Rights Reserved.</span>
+          <span>© 2024 AI Tools. All Rights Reserved.</span>
         </div>
       </footer>
     </>
