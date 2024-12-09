@@ -52,7 +52,7 @@ export function Social() {
         />
       </a>
 
-      <button className="flex items-center gap-2 px-4 py-1 border border-cyan-500 rounded-lg text-sm font-semibold bg-gradient-to-r from-cyan-900 to-teal-900 hover:scale-[110%] duration-700 ease-[cubic-bezier(.24,1.61,.72,1.01)]">
+      {/* <button className="flex items-center gap-2 px-4 py-1 border border-cyan-500 rounded-lg text-sm font-semibold bg-gradient-to-r from-cyan-900 to-teal-900 hover:scale-[110%] duration-700 ease-[cubic-bezier(.24,1.61,.72,1.01)]">
         Buy me a coffee{' '}
         <Image
           aria-hidden
@@ -62,7 +62,7 @@ export function Social() {
           height={15}
           priority={false}
         />
-      </button>
+      </button> */}
     </div>
   );
 }
