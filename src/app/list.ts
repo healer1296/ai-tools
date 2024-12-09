@@ -259,6 +259,16 @@ export const AIList = [
       },
       {
         type: 'research',
+        name: 'phind',
+        logo: '/logo/phind.svg',
+        label: 'Phind',
+        description: "Search engine designed for developers",
+        link: 'https://www.phind.com/',
+        width: 100,
+        height: 50,
+      },
+      {
+        type: 'research',
         name: 'pytorch',
         logo: '/logo/pytorch.svg',
         label: 'PyTorch',
