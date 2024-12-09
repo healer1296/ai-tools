@@ -18,7 +18,9 @@ export default function Home() {
               priority={false}
             />
 
-            <h1 className="text-2xl font-black text-cyan-600">AI Tools Finder</h1>
+            <h1 className="text-2xl font-black text-cyan-600">
+              AI Tools Finder
+            </h1>
           </a>
           <div className="flex flex-col md:flex-row justify-end items-center gap-6">
             {/* <div className="hidden md:block">
@@ -48,14 +50,25 @@ export default function Home() {
                       alt="File icon"
                       width={item.width}
                       height={item.height}
-                      priority={false}
+                      priority={true}
                     />
 
                     <div className="h-14 w-[1px] bg-white/50"></div>
 
                     <div>
-                      <h3 className="text-lg text-white/90 font-semibold">
+                      <h3 className="flex items-center gap-2 text-lg text-white/90 font-semibold">
                         {item.label}
+
+                        {item.verify && (
+                          <Image
+                            aria-hidden
+                            src="/verify.svg"
+                            alt="File icon"
+                            width={20}
+                            height={20}
+                            priority={true}
+                          />
+                        )}
                       </h3>
 
                       <p className="text-sm text-white/50 font-medium leading-relaxed tracking-wider line-clamp-1 mt-2">
