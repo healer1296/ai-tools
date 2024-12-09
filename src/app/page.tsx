@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <header className="fixed top-0 z-10 py-4 md:py-0 bg-slate-950 w-full">
-        <div className="flex flex-col gap-4 md:flex-row justify-start md:justify-between items-center h-32 md:h-20 px-4 md:px-8">
+        <div className="flex flex-col gap-4 md:flex-row justify-start md:justify-between items-center h-24 md:h-20 px-4 md:px-8">
           <a className="flex items-center justify-start gap-3" href="/">
             <Image
               aria-hidden
