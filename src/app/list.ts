@@ -96,6 +96,18 @@ export const AIList = [
       },
       {
         type: 'generative',
+        name: 'mango',
+        logo: '/logo/mango.svg',
+        label: 'Mango Animate',
+        description:
+          'Creating captivating animations, whiteboard videos, character animations',
+        link: 'https://mangoanimate.com',
+        width: 100,
+        height: 50,
+        verify: false,
+      },
+      {
+        type: 'generative',
         name: 'popai',
         logo: '/logo/popai.svg',
         label: 'PopAI',
