@@ -1,93 +1,166 @@
-import Image from 'next/image';
-import { AIList } from './list';
-import { Social } from '@/components/social';
-import { Search } from '@/components/search';
+'use client';
+
+import React, { Suspense } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { Loading } from './loading';
+import { List } from './list';
+
+function GetCode() {
+  const searchParams = useSearchParams();
+
+  const list = List.reverse();
+  const [isLoading, setIsLoading] = useState(true);
+  const [code, setCode] = useState<any>(undefined);
+  const [displayCode, setDisplayCode] = useState(false);
+  const [loadingCode, setLoadingCode] = useState(false);
+  const [displayLink, setDisplayLink] = useState(false);
+  const [loadingLink, setLoadingLink] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    const code = list.find((item) => item.id === searchParams.get('id'));
+    setCode(code);
+
+    const timeoutId = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
+
+  const showCode = () => {
+    // window.open('https://poawooptugroo.com/4/8640111', 'blank');
+
+    setLoadingCode(true);
+
+    setTimeout(() => {
+      setLoadingCode(false);
+      setDisplayCode(true);
+    }, 2000);
+  };
+
+  const showLink = () => {
+    if (displayLink) {
+      window.open(code?.link, 'blank');
+      return;
+    }
+
+    // window.open('https://poawooptugroo.com/4/8640111', 'blank');
+    setLoadingLink(true);
+
+    setTimeout(() => {
+      setLoadingLink(false);
+      setDisplayLink(true);
+    }, 2000);
+  };
+
+  const openLink = (link: string | undefined) => {
+    window.open(link, '_blank');
+  };
+
+  return (
+    <div className="flex flex-col justify-center items-center w-full h-full max-w-screen-lg m-auto">
+      <div className="flex flex-col justify-center gap-8 p-6 h-auto">
+        <h2 className="border-2 border-red-600 p-6 text-red-600 font-bold rounded-md">
+          We need funding to maintain the website, so there will be some
+          advertisements. We kindly ask for your understanding and support.
+        </h2>
+        <div className="flex flex-col md:flex-row justify-center gap-4">
+          <div className='md:w-1/3'>
+            <h1 className="mb-4 text-2xl font-semibold flex items-center justify-center gap-4 text-white">
+              Get Code Here
+            </h1>
+
+            {isLoading && (
+              <div className="w-full flex justify-center">
+                <Loading />
+              </div>
+            )}
+
+            {!isLoading && (
+              <div className="flex flex-col gap-6">
+                {displayCode && (
+                  <div className="w-full h-12 border-white border  text-white font-semibold text-lg rounded-md flex justify-center items-center">
+                    {(!loadingCode && code?.code) || 'No code'}
+                  </div>
+                )}
+
+                {!displayCode && (
+                  <button
+                    className="w-full h-12 border-white border text-white font-semibold text-lg rounded-md text-center   "
+                    onClick={showCode}
+                  >
+                    {loadingCode && (
+                      <div className="px-3 py-1 text-xs w-full h-12 font-medium leading-none text-center text-blue-800 bg-blue-200 rounded-md animate-pulse">
+                        <div className="w-ful h-full flex justify-center items-center">
+                          <Loading />
+                        </div>
+                      </div>
+                    )}
+                    {!loadingCode && 'Get Code'}
+                  </button>
+                )}
+
+                {displayLink && (
+                  <div
+                    className="w-full h-12 border-white border text-white font-semibold text-sm text-center rounded-md flex justify-center items-center cursor-pointer"
+                    onClick={() => openLink(code.link)}
+                  >
+                    {(!loadingLink && code?.link) || 'No link'}
+                  </div>
+                )}
+
+                {!displayLink && (
+                  <button
+                    className="w-full h-12 border-white border text-white font-semibold text-lg rounded-md text-center   "
+                    onClick={showLink}
+                  >
+                    {loadingLink && (
+                      <div className="px-3 py-1 text-xs w-full h-12 font-medium leading-none text-center text-blue-800 bg-blue-200 rounded-md animate-pulse">
+                        <div className="w-ful h-full flex justify-center items-center">
+                          <Loading />
+                        </div>
+                      </div>
+                    )}
+                    {!loadingLink && (
+                      <div className="flex justify-center items-center gap-4">
+                        Get Link
+                      </div>
+                    )}
+                  </button>
+                )}
+
+                <a href="https://x.com/xuangiang497759" target="blank">
+                  <button className="w-full h-12 border-white border text-white font-semibold text-lg rounded-md">
+                    See More
+                  </button>
+                </a>
+              </div>
+            )}
+          </div>
+          <div className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 py-4 px-4">
+            {list.map((item) => (
+              <button
+                className="bg-white py-4 font-bold rounded-md text-sm text-black"
+                key={item.id}
+                onClick={() => window.open(item.link, 'blank')}
+              >
+                <span>{item.code}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
-    <>
-      <header className="fixed top-0 z-10 py-4 md:py-0 bg-slate-950 w-full">
-        <div className="flex flex-col gap-4 md:flex-row justify-start md:justify-between items-center h-24 md:h-20 px-4 md:px-8">
-          <a className="flex items-center justify-start gap-3" href="/">
-            <Image
-              aria-hidden
-              src="/logo.svg"
-              alt="File icon"
-              width={30}
-              height={30}
-              priority={false}
-            />
-
-            <h1 className="text-2xl font-black text-cyan-600">
-              AI Tools Finder
-            </h1>
-          </a>
-          <div className="flex flex-col md:flex-row justify-end items-center gap-6">
-            {/* <div className="hidden md:block">
-              <Search />
-            </div> */}
-            <Social />
-          </div>
-
-          {/* <div className="md:hidden">
-            <Search />
-          </div> */}
-        </div>
-      </header>
-
-      <main className="px-4 md:px-8 pt-36 md:pt-20">
-        {AIList.map((ai) => (
-          <section>
-            <h3 className="text-xl font-bold mb-4 mt-8">{ai.label}</h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row gap-5">
-              {ai.ai_list.map((item) => (
-                <a href={item.link} target="blank">
-                  <div className="flex items-center gap-4 p-4 bg-slate-900 border border-white/50 rounded-md cursor-pointer hover:scale-[103%] duration-700 ease-[cubic-bezier(.24,1.61,.72,1.01)]">
-                    <Image
-                      aria-hidden
-                      src={item.logo}
-                      alt="File icon"
-                      width={item.width}
-                      height={item.height}
-                      priority={true}
-                    />
-
-                    <div className="h-14 w-[1px] bg-white/50"></div>
-
-                    <div>
-                      <h3 className="flex items-center gap-2 text-lg text-white/90 font-semibold">
-                        {item.label}
-
-                        {item.verify && (
-                          <Image
-                            aria-hidden
-                            src="/verify.svg"
-                            alt="File icon"
-                            width={20}
-                            height={20}
-                            priority={true}
-                          />
-                        )}
-                      </h3>
-
-                      <p className="text-sm text-white/50 font-medium leading-relaxed tracking-wider line-clamp-1 mt-2">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </section>
-        ))}
-      </main>
-
-      <footer className="mt-12 py-6 px-8 border-t border-white/80">
-        <div className="flex justify-center items-center">
-          <span>© 2024 AI Tools Finder. All Rights Reserved.</span>
-        </div>
-      </footer>
-    </>
+    <Suspense>
+      <GetCode></GetCode>
+    </Suspense>
   );
 }
